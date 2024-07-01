@@ -3,6 +3,29 @@
 @tailwind utilities;
 
 :root {
+  --text-color: #451284;
+  --background-color: rgb(92, 234, 312);
+  --border-color: hsl(23deg, 34%, 60%);
+  --active-color: hsl(45deg, 72%, 02%);
+}
+
+body {
+  color: var(--text-color);
+}
+
+.active {
+  border-bottom: 2px solid var(--border-color);
+  color: var(--active-color);
+  /* color: #512367; */
+}
+
+.link {
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +53,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
