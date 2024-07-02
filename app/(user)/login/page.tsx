@@ -3,22 +3,22 @@ import { useRouter } from "next/navigation";
 const Login = () => {
   const router = useRouter();
   return (
-    <main className="w-full h-screen flex items-center justify-center">
-      <div className="w-2/4 mx-auto border border-gray-300 rounded-md shadow-2xl">
+    <main className="w-full h-screen lg:flex lg:items-center lg:justify-center">
+      <div className="w-full lg:w-3/4 xl:w-2/4 md:mx-auto lg:border border-gray-300 rounded-md lg:shadow-2xl">
         <form
           action=""
-          className="flex justify-center items-center flex-col py-16 px-24 gap-8 text-sm"
+          className="flex justify-center items-center flex-col py-16 px-2 md:px-24 gap-8 text-sm"
         >
           <section className="flex justify-end items-center w-full">
             <button
-              className="transition duration-600 ease-in-out border-b-2 border-purple-800 hover:border-yellow-600 hover:text-yellow-600 text-sm text-green-800 transform hover:scale-105 hover:translate-x-px"
+              className="transition duration-1000 ease-in-out bg-purple-800 text-white p-2 rounded-md border border-purple-800 hover:border-yellow-600 hover:bg-opacity-25 hover:text-yellow-600 text-sm text-green-800 transform hover:scale-105 hover:translate-x-px"
               type="button"
               onClick={() => router.push("/login/signup")}
             >
               Sign Up
             </button>
           </section>
-          <section className="flex items-center justify-center gap-1 w-full">
+          <section className="flex flex-col sm:flex-row items-center justify-center gap-y-2 sm:gap-1 w-full">
             <div className="w-32">
               <label htmlFor="username">Username :</label>
             </div>
@@ -32,7 +32,7 @@ const Login = () => {
               />
             </div>
           </section>
-          <section className="flex items-center justify-center gap-1 w-full">
+          <section className="flex flex-col sm:flex-row items-center justify-center gap-y-2 sm:gap-1 w-full">
             <div className="w-32">
               <label htmlFor="password">Password :</label>
             </div>
