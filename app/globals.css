@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
 :root {
   --text-color: #451284;
   --background-color: rgb(92, 234, 312);

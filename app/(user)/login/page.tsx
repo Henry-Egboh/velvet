@@ -1,48 +1,74 @@
-"use client";
-import { useRouter } from "next/navigation";
+// "use client";
+import { PurpleButton, SubmitButton } from "@/app/components/button";
+const formItems: any = [
+  {
+    label: {
+      email: "Email :",
+      password: "PassWord :",
+    },
+  },
+  {
+    input: {
+      email: {
+        type: "email",
+        placeholder: "Enter your email",
+        className: `transition duration-300 ease-in-out border border-solid rounded-md border-gray-300
+        py-1 px-4 w-full placeholder-gray-300 placeholder-text-xs focus:outline-none focus:border-purple-300 shadow-sm`,
+        name: "email",
+        id: "email",
+        autoComplete: "email",
+        value: "",
+      },
+      password: {
+        type: "password",
+        placeholder: "Enter your password",
+        className: `transition duration-300 ease-in-out border border-solid rounded-md border-gray-300
+          py-1 px-4 w-full placeholder-gray-300 placeholder-text-xs focus:outline-none focus:border-purple-300 shadow-sm`,
+        name: "password",
+        id: "password",
+        value: "",
+      },
+    },
+  },
+];
 const Login = () => {
-  const router = useRouter();
   return (
     <main className="w-full h-screen lg:flex lg:items-center lg:justify-center">
-      <div className="w-full lg:w-3/4 xl:w-2/4 md:mx-auto lg:border border-gray-300 rounded-md lg:shadow-2xl">
+      <div className="w-full lg:w-3/4 xl:w-1/2 md:mx-auto lg:border border-gray-300 rounded-md lg:shadow-2xl">
         <form
           action=""
           className="flex justify-center items-center flex-col py-16 px-2 md:px-24 gap-8 text-sm"
         >
           <section className="flex justify-end items-center w-full">
-            <button
-              className="transition duration-1000 ease-in-out bg-purple-800 text-white p-2 rounded-md border border-purple-800 hover:border-yellow-600 hover:bg-opacity-25 hover:text-yellow-600 text-sm text-green-800 transform hover:scale-105 hover:translate-x-px"
-              type="button"
-              onClick={() => router.push("/login/signup")}
-            >
+            <PurpleButton className="transition duration-1000 ease-in-out bg-purple-800 text-white p-2 rounded-md border border-purple-800 hover:border-yellow-600 hover:bg-opacity-25 hover:text-yellow-600 text-sm text-green-800 transform hover:scale-105 hover:translate-x-px">
               Sign Up
-            </button>
+            </PurpleButton>
           </section>
           <section className="flex flex-col sm:flex-row items-center justify-center gap-y-2 sm:gap-1 w-full">
             <div className="w-32">
-              <label htmlFor="username">Username :</label>
+              <label htmlFor="email">{formItems[0].label["email"]}</label>
             </div>
             <div className="w-full">
               <input
-                className="transition duration-300 ease-in-out border border-solid rounded-md border-gray-300 py-1 px-4 w-full placeholder-gray-300 placeholder-text-xs focus:outline-none focus:border-purple-300 shadow-sm"
-                id="username"
-                type="text"
-                placeholder="Enter your email address"
-                name="Username"
+                className={formItems[1].input.email.className}
+                id={formItems[1].input.email.id}
+                type={formItems[1].input.email.type}
+                placeholder={formItems[1].input.email.placeholder}
+                name={formItems[1].input.email.name}
               />
             </div>
           </section>
           <section className="flex flex-col sm:flex-row items-center justify-center gap-y-2 sm:gap-1 w-full">
             <div className="w-32">
-              <label htmlFor="password">Password :</label>
+              <label htmlFor="password">{formItems[0].label.password}</label>
             </div>
             <div className="w-full">
               <input
-                className="transition duration-300 ease-in-out border border-solid rounded-md border-gray-300 py-1 px-4 w-full placeholder-gray-300 placeholder-text-xs focus:outline-none focus:border-purple-300 shadow-sm"
-                placeholder="Enter your password"
-                id="password"
-                type="password"
-                name="password"
+                className={formItems[1].input.password.className}
+                placeholder={formItems[1].input.password.placeholder}
+                id={formItems[1].input.password["id"]}
+                type={formItems[1].input.password["type"]}
+                name={formItems[1].input.password["name"]}
               />
             </div>
           </section>
@@ -53,13 +79,7 @@ const Login = () => {
             </div>
           </section>
           <section className="w-full">
-            <button
-              className="transition duration-300 ease-in-out border rounded-md bg-blue-600 text-white border-gray-300 w-full p-1 transform hover:bg-opacity-80 hover:tracking-wide"
-              type="button"
-              onClick={() => router.push("/")}
-            >
-              Submit
-            </button>
+            <SubmitButton />
           </section>
         </form>
       </div>
