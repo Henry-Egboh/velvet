@@ -79,7 +79,7 @@ const Login = () => {
             </div>
           </section>
           <section className="w-full">
-            <SubmitButton />
+            <SubmitButton>Submit</SubmitButton>
           </section>
         </form>
       </div>

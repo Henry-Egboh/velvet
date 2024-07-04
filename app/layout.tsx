@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={raleway.className}>
-        <main className="px-2 xl:px-24">{children}</main>
+        <main className="w-full xl:px-24">{children}</main>
       </body>
     </html>
   );

@@ -6,16 +6,16 @@ interface ButtonProps {
   className?: string;
 }
 // reusable submit button component
-export const SubmitButton = () => {
+export const SubmitButton = ({ children }: ButtonProps) => {
   const router = useRouter();
   return (
     <>
       <button
-        className="transition duration-300 ease-in-out border rounded-md bg-blue-600 text-white border-gray-300 w-full p-1 transform hover:bg-opacity-80 hover:tracking-wide"
+        className="transition duration-300 ease-in-out border rounded-md bg-purple-800 text-white border-gray-300 w-full p-1 transform hover:bg-opacity-80 hover:tracking-wide"
         type="button"
         onClick={() => router.push("/")}
       >
-        Submit
+        {children}
       </button>
     </>
   );

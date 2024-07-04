@@ -1,15 +1,16 @@
-import Image from "next/image";
 import { Suspense } from "react";
 import Cards from "./components/cards";
 import Footer from "./components/footer";
 import Content from "./components/content";
 import Hero from "./components/heroSection";
-import Nav from "./components/nav";
+import NavBar from "./components/navBar";
 
 export default function Home() {
   return (
     <main>
-      <Nav />
+      <Suspense fallback={<div>Loading Nav Bar</div>}>
+      <NavBar />
+      </Suspense>
       {/* split components rendered from server to client */}
       <Suspense fallback={<div>Loading hero section...</div>}>
       <Hero />

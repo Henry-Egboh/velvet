@@ -1,11 +1,11 @@
 import Footer from "../components/footer";
-import Nav from "../components/nav";
+import NavBar from "../components/navBar";
 
 const WebPagesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div>
-        <Nav />
+        <NavBar />
       </div>
       <div>{children}</div>
       <div>
