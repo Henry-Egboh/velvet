@@ -5,6 +5,8 @@ import { HiBars3, HiXMark } from "react-icons/hi2";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { FaEthereum } from "react-icons/fa6";
+import { FaShoppingCart } from "react-icons/fa";
+import { PurpleButton } from "./button";
 const NavBar = () => {
   // state to manage visibility
   const [isOpen, setIsOpen] = useState(false);
@@ -38,11 +40,16 @@ const NavBar = () => {
     },
     {
       id: 5,
-      name: "Cart",
-      href: "/cart",
+      name: <PurpleButton type={"button"} className="transition duration-300 ease-in-out text-white hover:bg-purple-600 bg-purple-800 rounded-md p-2">Sign Up</PurpleButton>,
+      href: "/login/signup",
     },
     {
       id: 6,
+      name: <FaShoppingCart className="transition duration-300 ease-in-out hover:text-purple-600 text-purple-800" />,
+      href: "/cart",
+    },
+    {
+      id: 7,
       name: "Dashboard",
       href: "/dashboard",
     },
@@ -61,7 +68,7 @@ const NavBar = () => {
         </Link>
       </h1>
       {/* desktop nav items  */}
-      <ul className="hidden md:flex gap-x-8">
+      <ul className="hidden md:flex items-center justify-center gap-x-8">
         {navItems.map((item) => (
           <li key={item.id}>
             <Link
@@ -92,7 +99,7 @@ const NavBar = () => {
       <ul
         className={
           isOpen
-            ? "transition ease-in-out duration-400 absolute top-24 right-0 w-full bg-purple-800 flex flex-col gap-y-8 p-4 text-white antialiased text-center text-sm md:hidden shadow-2xl z-50"
+            ? "transition ease-in-out duration-400 absolute top-24 right-0 w-full bg-purple-800 flex flex-col items-center justify-center gap-y-8 p-4 text-white antialiased text-center text-sm md:hidden shadow-2xl z-50"
             : "transition ease-in-out duration-400 top-[-100%] right-[-100%] hidden"
         }
       >

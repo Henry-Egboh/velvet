@@ -12,11 +12,13 @@ const Error = ({
     console.log(error);
   }, [error]);
   return (
-    <div>
+    <header className="w-screen h-screen flex flex-col justify-center items-center">
+    <div className="flex flex-col gap-4 items-center justify-center text-base tracking-wide font-medium text-current">
       <h2>Ooops!😒</h2>
       <p>Something went wrong</p>
-      <button onClick={() => reset()}>Try Again</button>
+      <button className="border-px bg-purple-600 text-white p-2" onClick={() => reset()}>Try Again</button>
     </div>
+    </header>
   );
 };
 

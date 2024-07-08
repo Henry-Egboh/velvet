@@ -11,11 +11,18 @@ const Error = ({
     console.log(error);
   }, [error]);
   return (
-    <div>
-      <h2>🤔 Ooops!</h2>
-      <p>Temporal Error</p>
-      <button onClick={() => reset()}>Retry</button>
-    </div>
+    <header className="w-screen h-screen flex flex-col justify-center items-center">
+      <div className="flex flex-col gap-4 items-center justify-center text-base tracking-wide font-medium text-current">
+        <h2>Ooops!😒</h2>
+        <p>Temporal Error</p>
+        <button
+          className="border-px bg-purple-600 text-white p-2"
+          onClick={() => reset()}
+        >
+          Try Again
+        </button>
+      </div>
+    </header>
   );
 };
 

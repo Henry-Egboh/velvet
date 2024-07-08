@@ -1,6 +1,9 @@
-// "use client";
+"use client";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { PurpleButton, SubmitButton } from "@/app/components/button";
-const formItems: any = [
+// form parameters
+export const formItems: any = [
   {
     label: {
       email: "Email :",
@@ -16,7 +19,7 @@ const formItems: any = [
         py-1 px-4 w-full placeholder-gray-300 placeholder-text-xs focus:outline-none focus:border-purple-300 shadow-sm`,
         name: "email",
         id: "email",
-        autoComplete: "email",
+        autoComplete: "off",
         value: "",
       },
       password: {
@@ -26,12 +29,35 @@ const formItems: any = [
           py-1 px-4 w-full placeholder-gray-300 placeholder-text-xs focus:outline-none focus:border-purple-300 shadow-sm`,
         name: "password",
         id: "password",
+        autocpomplete: "off",
         value: "",
       },
+      fullname: {
+        type: "text",
+        placeholder: "Enter your fullname",
+        className: `transition duration-300 ease-in-out border border-solid rounded-md border-gray-300
+          py-1 px-4 w-full placeholder-gray-300 placeholder-text-xs focus:outline-none focus:border-purple-300 shadow-sm`,
+        name: "fullname",
+        id: "fullname",
+        autoComplete: "name",
+        value: "",
+      }
     },
   },
 ];
+// login function
 const Login = () => {
+  // sign up button class
+  const signUpBtn = {
+    className: `transition duration-400 ease-in-out bg-purple-800 text-white p-2 rounded-md
+      border border-current hover:border-purple-600 hover:bg-purple-600 hover:tracking-wide
+      text-sm text-green-800`,
+  };
+// handle sign up btn click
+  const handleClick = () => {
+    console.log("sign up button clicked");
+  };
+
   return (
     <main className="w-full h-screen lg:flex lg:items-center lg:justify-center">
       <div className="w-full lg:w-3/4 xl:w-1/2 md:mx-auto lg:border border-gray-300 rounded-md lg:shadow-2xl">
@@ -39,8 +65,12 @@ const Login = () => {
           action=""
           className="flex justify-center items-center flex-col py-16 px-2 md:px-24 gap-8 text-sm"
         >
+          {/* sign up component on top of login form */}
           <section className="flex justify-end items-center w-full">
-            <PurpleButton className="transition duration-1000 ease-in-out bg-purple-800 text-white p-2 rounded-md border border-purple-800 hover:border-yellow-600 hover:bg-opacity-25 hover:text-yellow-600 text-sm text-green-800 transform hover:scale-105 hover:translate-x-px">
+            <PurpleButton
+              type={"button"}
+              className={signUpBtn.className}
+            >
               Sign Up
             </PurpleButton>
           </section>
@@ -78,6 +108,7 @@ const Login = () => {
               <label htmlFor="checkbox">Keep Signed in</label>
             </div>
           </section>
+          {/* submit button component  */}
           <section className="w-full">
             <SubmitButton>Submit</SubmitButton>
           </section>

@@ -7,7 +7,7 @@ const raleway = Raleway({ subsets: ["cyrillic"] });
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Velvet to my skin",
+  title: "Velvet Skin Care",
   description: "Skin care products at your desired quality",
   icons: {
     icon: "/icon.png",

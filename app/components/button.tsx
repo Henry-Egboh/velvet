@@ -1,9 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 // prop type definition
 interface ButtonProps {
   children?: React.ReactNode;
   className?: string;
+  btnClick?: any;
+  type?: any;
 }
 // reusable submit button component
 export const SubmitButton = ({ children }: ButtonProps) => {
@@ -21,14 +24,14 @@ export const SubmitButton = ({ children }: ButtonProps) => {
   );
 };
 // reusable button component
-export const PurpleButton = ({ children, className }: ButtonProps) => {
-  const router = useRouter();
+export const PurpleButton = ({
+  children,
+  className,
+  btnClick,
+  type,
+}: ButtonProps) => {
   return (
-    <button
-      className={className}
-      type="button"
-      onClick={() => router.push("/login/signup")}
-    >
+    <button className={className} type={type} onClick={btnClick}>
       {children}
     </button>
   );
