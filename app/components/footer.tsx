@@ -1,19 +1,17 @@
 import Link from "next/link";
 import { PurpleButton } from "./button";
 import { getCurrentDate } from "../utils/getCurrentDate";
-import {
-  FaEthereum,
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaWhatsapp,
-  FaYoutube,
-} from "react-icons/fa6";
+import { FaEthereum } from "react-icons/fa6";
+import { linkStyling } from "../utils/stylesUtil";
+import { socialIconStyles } from "../utils/stylesUtil";
+import { socialIcons } from "../utils/socialIcons";
+import PartnerWithUs from "./partnerWithUs";
+import { inputStyles } from "../utils/stylesUtil";
 
 const Footer = () => {
   return (
     // footer section
-    <footer className="grid w-full">
+    <footer className="grid w-full lg:px-4">
       <main className="grid lg:grid-cols-4 gap-y-16">
         {/* aside footer content with background */}
         <aside className="grid lg:row-span-2 bg-purple-800 bg-opacity-5 p-4 gap-y-8">
@@ -35,7 +33,13 @@ const Footer = () => {
                   </PurpleButton>
                 </div>
                 <div className="w-full">
-                    <input type="email" placeholder="Enter your email" name="email" className="transition ease-in-out duration-300 w-full py-1.5 border border-gray-300 placeholder:pl-24 placeholder:text-xs placeholder:text-gray-300 hover:border-purple-300 focus:outline-none focus:border-yellow-600" />
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    name="email"
+                    autoComplete="on"
+                    className="transition ease-in-out duration-300 w-full py-1.5 border border-gray-300 placeholder:pl-24 placeholder:text-xs placeholder:text-gray-300 hover:border-purple-300 focus:outline-none focus:border-yellow-600"
+                  />
                 </div>
               </form>
             </div>
@@ -62,23 +66,16 @@ const Footer = () => {
               </p>
             </div>
             {/* social icons */}
-            <div className="flex items-center gap-4">
-              <Link href={"/"}>
-                <FaWhatsapp className="transition duration-400 ease-in-out hover:text-yellow-600 text-purple-800 text-2xl transform hover:scale-105 hover:translate-x-px" />
-              </Link>
-              <Link href={"/"}>
-                <FaYoutube className="transition duration-400 ease-in-out hover:text-yellow-600 text-purple-800 text-2xl transform hover:scale-105 hover:translate-x-px" />
-              </Link>
-              <Link href={"/"}>
-                <FaTwitter className="transition duration-400 ease-in-out hover:text-yellow-600 text-purple-800 text-2xl transform hover:scale-105 hover:translate-x-px" />
-              </Link>
-              <Link href={"/"}>
-                <FaInstagram className="transition duration-400 ease-in-out hover:text-yellow-600 text-purple-800 text-2xl transform hover:scale-105 hover:translate-x-px" />
-              </Link>
-              <Link href={"/"}>
-                <FaFacebook className="transition duration-400 ease-in-out hover:text-yellow-600 text-purple-800 text-2xl transform hover:scale-105 hover:translate-x-px" />
-              </Link>
-            </div>
+            <ul className="flex items-center justify-center gap-4">
+              {/* reusable social icon component */}
+              {socialIcons.map((icon) => (
+                <li key={icon.id}>
+                  <Link href={icon.href} className={socialIconStyles}>
+                    {icon.icon}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </aside>
         {/* ==========================================footer list items */}
@@ -90,35 +87,45 @@ const Footer = () => {
                 Georgous Sleek
               </h4>
               <ul className="flex flex-col gap-2 text-sm font-light">
+                {/* when clicked shows dropdown menu  */}
+                <li className="">
+                  <Link className={linkStyling} href={"/"}>
+                    Partner with us
+                  </Link>
+                  {/* partner with us component */}
+                  <PartnerWithUs className="hidden invisible flex flex-col gap-2">
+                    <input
+                      className={inputStyles}
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                      id="email"
+                      autoComplete="on"
+                    />
+                    <textarea
+                      name="message"
+                      id="message"
+                      autoComplete="on"
+                      placeholder="leave a message ..."
+                      className={inputStyles}
+                    ></textarea>
+                    <button className="transition duration-300 ease-in-out text-sm font-medium hover:tracking-wide w-full border bg-yellow-600 hover:bg-yellow-500 rounded p-2 text-white">
+                      Submit
+                    </button>
+                  </PartnerWithUs>
+                </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Pave Watch
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Pave Watch
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
-                    Pave Watch
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Pave Watch
                   </Link>
                 </li>
@@ -131,50 +138,32 @@ const Footer = () => {
               </h4>
               <ul className="flex flex-col gap-2 text-sm font-light">
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Citel Sande
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Citel Sande
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Citel Sande
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Citel Sande
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Citel Sande
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Citel Sande
                   </Link>
                 </li>
@@ -187,42 +176,27 @@ const Footer = () => {
               </h4>
               <ul className="flex flex-col gap-2 text-sm font-light">
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Sablo Tie
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Sablo Tie
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Sablo Tie
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Sablo Tie
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Sablo Tie
                   </Link>
                 </li>
@@ -235,42 +209,27 @@ const Footer = () => {
               </h4>
               <ul className="flex flex-col gap-2 text-sm font-light">
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Rings Olive
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Rings Olive
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Rings Olive
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Rings Olive
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105"
-                    href={"/"}
-                  >
+                  <Link className={linkStyling} href={"/"}>
                     Rings Olive
                   </Link>
                 </li>
@@ -280,30 +239,33 @@ const Footer = () => {
         </div>
         {/* footer card items  */}
         <div className="lg:row-span-1 lg:col-span-3 lg:text-start w-full flex items-center justify-center lg:gap-x-8 lg:px-12 flex-auto text-center  ">
-            <div className="bg-purple-800 bg-opacity-5 shadow p-2 flex flex-col lg:flex-row gap-4 items-center">
-                <FaEthereum className="text-2xl text-purple-800" />
-                <div className="text-xs">
-                    <h4 className="text-black-600 font-medium">Ethereal</h4>
-                    <p className="text-gray-400">similique a error accusantium architecto.</p>
-                    <p>Saepe adipisci animi consectetur suscipit, eligendi libero hic quos.</p>
-                </div>
+          <div className="bg-purple-800 bg-opacity-5 shadow p-2 flex flex-col lg:flex-row gap-4 items-center">
+            <FaEthereum className="text-2xl text-purple-800" />
+            <div className="text-xs">
+              <h4 className="text-black-600 font-medium">Ethereal</h4>
+              <p className="text-gray-400">
+                similique a error accusantium architecto.
+              </p>
             </div>
-            <div className="bg-purple-800 bg-opacity-5 shadow p-2 flex flex-col lg:flex-row gap-4 items-center">
-                <FaEthereum className="text-2xl text-purple-800" />
-                <div className="text-xs">
-                    <h4 className="text-black-600 font-medium">Ethereal</h4>
-                    <p className="text-gray-400">similique a error accusantium architecto.</p>
-                    <p>Saepe adipisci animi consectetur suscipit, eligendi libero hic quos.</p>
-                </div>
+          </div>
+          <div className="bg-purple-800 bg-opacity-5 shadow p-2 flex flex-col lg:flex-row gap-4 items-center">
+            <FaEthereum className="text-2xl text-purple-800" />
+            <div className="text-xs">
+              <h4 className="text-black-600 font-medium">Ethereal</h4>
+              <p className="text-gray-400">
+                similique a error accusantium architecto.
+              </p>
             </div>
-            <div className="bg-purple-800 bg-opacity-5 shadow p-2 flex flex-col lg:flex-row gap-4 items-center">
-                <FaEthereum className="text-2xl text-purple-800" />
-                <div className="text-xs">
-                    <h4 className="text-black-600 font-medium">Ethereal</h4>
-                    <p className="text-gray-400">similique a error accusantium architecto.</p>
-                    <p>Saepe adipisci animi consectetur suscipit, eligendi libero hic quos.</p>
-                </div>
+          </div>
+          <div className="bg-purple-800 bg-opacity-5 shadow p-2 flex flex-col lg:flex-row gap-4 items-center">
+            <FaEthereum className="text-2xl text-purple-800" />
+            <div className="text-xs">
+              <h4 className="text-black-600 font-medium">Ethereal</h4>
+              <p className="text-gray-400">
+                similique a error accusantium architecto.
+              </p>
             </div>
+          </div>
         </div>
       </main>
       {/* copyright section */}

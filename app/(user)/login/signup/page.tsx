@@ -3,6 +3,8 @@ import { PurpleButton } from "@/app/components/button";
 import { formItems } from "../page";
 import { useState } from "react";
 import Link from "next/link";
+import { inputStyles } from "@/app/utils/stylesUtil";
+// SIGN UP COMPONENT
 const SignUp = () => {
   // CREATE STATE TO UPDATE INPUT
   const [formData, setFormData] = useState({
@@ -29,20 +31,20 @@ const SignUp = () => {
     e.preventDefault();
     alert(`FullName : ${formData.fullname}, Email : ${formData.email}, Password : ${formData.password}, Checked : ${formData.checked}`)
   };
-  // SIGN UP CLASS
+  // SIGN UP BTN CLASS
   const signUpBtn = {
     className: `transition duration-400 ease-in-out bg-purple-800 text-white p-2 rounded-md
       border border-current hover:border-purple-600 hover:bg-purple-600 hover:tracking-wide
       text-sm text-green-800 w-full`,
   };
   return (
-    <main className="w-[100%] h-screen flex flex-col items-center justify-center">
+    <main className="w-[100%] flex flex-col items-center justify-center">
       <form
-        className="w-full md:w-[35%] flex flex-col gap-8 ring-1 ring-gray-200 items-center justify-center px-12 py-24"
+        className="w-full md:w-[35%] flex flex-col gap-8 ring-1 ring-gray-200 items-center justify-center px-4 py-16 md:px-8 md:py-24"
         action=""
       >
         <input
-          className={formItems[1].input.fullname.className}
+          className={`${inputStyles} w-full`}
           placeholder={formItems[1].input.fullname.placeholder}
           id={formItems[1].input.fullname["id"]}
           type={formItems[1].input.fullname["type"]}
@@ -51,7 +53,7 @@ const SignUp = () => {
           value={formData.fullname}
         />
         <input
-          className={formItems[1].input.email.className}
+    className={`${inputStyles} w-full`}
           id={formItems[1].input.email.id}
           type={formItems[1].input.email.type}
           placeholder={formItems[1].input.email.placeholder}
@@ -60,7 +62,7 @@ const SignUp = () => {
           value={formData.email}
         />
         <input
-          className={formItems[1].input.password.className}
+          className={`${inputStyles} w-full`}
           placeholder={formItems[1].input.password.placeholder}
           id={formItems[1].input.password["id"]}
           type={formItems[1].input.password["type"]}
@@ -86,9 +88,6 @@ const SignUp = () => {
           Sign Up
         </PurpleButton>
       </form>
-      <p>
-        <Link href={"/"}>Take Me Home</Link>
-      </p>
     </main>
   );
 };

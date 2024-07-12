@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { useState } from "react";
@@ -37,6 +36,7 @@ const NavBar = () => {
       id: 4,
       name: "Login",
       href: "/login",
+      target: "_top",
     },
     {
       id: 5,
@@ -45,7 +45,7 @@ const NavBar = () => {
     },
     {
       id: 6,
-      name: <FaShoppingCart className="transition duration-300 ease-in-out hover:text-purple-600 text-purple-800" />,
+      name: <FaShoppingCart className="transition duration-300 ease-in-out hover:text-purple-600 text-white md:text-slate-600" />,
       href: "/cart",
     },
     {
@@ -56,23 +56,26 @@ const NavBar = () => {
   ];
 
   return (
-    <header className="text-sm font-medium max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+    <header className="text-sm font-medium w-full px-2 py-4 md:px-4 flex items-center justify-between md:justify-start">
       {/* logo */}
-      <h1 className="transition duration-500 ease-in-out text-lg hover:text-purple-800 hover:border-none px-4 py-2 font-semibold text-yellow-600 border border-solid ring rounded-tl-[50%] rounded-br-lg border-purple-800 cursor-pointer transform hover:scale-106 hover:translate-x-px">
+      <div className="transition duration-300 ease-in-out text-lg hover:text-purple-800 font-semibold text-yellow-600 hover:border-none rounded-tl-[50%] rounded-br-lg border-purple-800 cursor-pointer transform hover:-translate-y-[2px]">
+      <h1>
         <Link
           className="transition duration-300 ease-in-out text-yellow-600 hover:text-purple-800"
           href={"/"}
         >
-          <FaEthereum className="text-lg text-yellow-600 hover:text-purple-800" />
+          <FaEthereum className="text-lg text-yellow-600" />
           Velvet
         </Link>
       </h1>
+      </div>
       {/* desktop nav items  */}
-      <ul className="hidden md:flex items-center justify-center gap-x-8">
+      <ul className="hidden md:flex items-center justify-center gap-x-8 flex-auto">
         {navItems.map((item) => (
           <li key={item.id}>
             <Link
               href={item.href}
+              target={item.target}
               className={
                 pathname === item.href
                   ? "border-b-2 border-yellow-600 transition ease-in-out duration-300 hover:text-yellow-600"

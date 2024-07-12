@@ -8,9 +8,9 @@ import NavBar from "./components/navBar";
 export default function Home() {
   return (
     <main>
-      <Suspense fallback={<div>Loading Nav Bar</div>}>
+      {/* <Suspense fallback={<div>Loading Nav Bar</div>}>
       <NavBar />
-      </Suspense>
+      </Suspense> */}
       {/* split components rendered from server to client */}
       <Suspense fallback={<div>Loading hero section...</div>}>
       <Hero />

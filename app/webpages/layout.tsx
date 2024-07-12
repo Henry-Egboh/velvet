@@ -5,7 +5,7 @@ const WebPagesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
       </div>
       <div>{children}</div>
       <div>
