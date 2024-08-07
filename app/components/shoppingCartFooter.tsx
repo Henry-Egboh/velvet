@@ -3,11 +3,11 @@ import { linkStyling } from "../utils/stylesUtil";
 import { socialIcons } from "../utils/socialIcons";
 const ShoppingCartFooter = () => {
   return (
-    <footer className="flex gap-8 justify-center">
+    <footer className="flex lg:gap-8 justify-center">
       {/* 1st footer section */}
       <section className="flex flex-col gap-2">
-        <h4 className="font-bold tracking-wider leading-6 p-2">FAQ</h4>
-        <ul className="flex flex-col gap-2">
+        <h4 className="font-medium text-sm tracking-wider leading-6 p-2">FAQ</h4>
+        <ul className="flex flex-col gap-2 text-light font-light text-sm">
           <li>
             <Link className={linkStyling} href="/">
               Get a Refund
@@ -27,10 +27,10 @@ const ShoppingCartFooter = () => {
       </section>
       {/* 2nd footer section */}
       <section className="flex flex-col gap-2">
-        <h4 className="font-bold tracking-wider leading-6 p-2">
+        <h4 className="font-medium text-sm tracking-wider leading-6 p-2">
           Return Policy
         </h4>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-2 text-light font-light text-sm">
           <li>
             <Link className={linkStyling} href="/">
               Vision & Mission

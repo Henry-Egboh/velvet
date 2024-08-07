@@ -3,14 +3,11 @@ import Cards from "./components/cards";
 import Footer from "./components/footer";
 import Content from "./components/content";
 import Hero from "./components/heroSection";
-import NavBar from "./components/navBar";
+import ProductCategories from "./components/categories";
 
 export default function Home() {
   return (
     <main>
-      {/* <Suspense fallback={<div>Loading Nav Bar</div>}>
-      <NavBar />
-      </Suspense> */}
       {/* split components rendered from server to client */}
       <Suspense fallback={<div>Loading hero section...</div>}>
       <Hero />
@@ -20,6 +17,9 @@ export default function Home() {
       </Suspense>
       <Suspense fallback={<div>Loading Cards...</div>}>
       <Cards />
+      </Suspense>
+      <Suspense fallback={<div>Loading Product Categories...</div>}>
+      <ProductCategories />
       </Suspense>
       <Suspense fallback={<div>Loading footer...</div>}>
       <Footer />

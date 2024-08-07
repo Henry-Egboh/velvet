@@ -36,7 +36,6 @@ const NavBar = () => {
       id: 4,
       name: "Login",
       href: "/login",
-      target: "_top",
     },
     {
       id: 5,
@@ -75,7 +74,6 @@ const NavBar = () => {
           <li key={item.id}>
             <Link
               href={item.href}
-              target={item.target}
               className={
                 pathname === item.href
                   ? "border-b-2 border-yellow-600 transition ease-in-out duration-300 hover:text-yellow-600"

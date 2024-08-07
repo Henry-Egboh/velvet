@@ -8,7 +8,7 @@ export const { socialIconStyles } = SocialIconStyling;
 // link classes excluding navBar
 const linkClass = {
   linkStyling:
-    "transition duration-1000 ease-in-out p-2 hover:text-yellow-600 text-sm transform hover:scale-105",
+    "transition duration-300 ease-in-out lg:p-2 hover:text-yellow-600 text-sm transform hover:scale-105",
 };
 export const { linkStyling } = linkClass;
 

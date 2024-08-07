@@ -5,14 +5,122 @@ import { FaEthereum } from "react-icons/fa6";
 import { linkStyling } from "../utils/stylesUtil";
 import { socialIconStyles } from "../utils/stylesUtil";
 import { socialIcons } from "../utils/socialIcons";
-import PartnerWithUs from "./partnerWithUs";
 import { inputStyles } from "../utils/stylesUtil";
+import ShoppingCartFooter from "./shoppingCartFooter";
+const footerData = [
+  {
+    sleek: [
+      {
+        id: 1,
+        name: "Marsh Rings",
+        href: "/",
+      },
+      {
+        id: 2,
+        name: "Valeo Welsh",
+        href: "/",
+      },
+      {
+        id: 3,
+        name: "Sartin Marko",
+        href: "/",
+      },
+      {
+        id: 4,
+        name: "Chain Bucks",
+        href: "/",
+      },
+    ],
+    necklace: [
+      {
+        id: 1,
+        name: "Olmo lace",
+        href: "/",
+      },
+      {
+        id: 2,
+        name: "Bracelet",
+        href: "/",
+      },
+      {
+        id: 3,
+        name: "Well Woven",
+        href: "/",
+      },
+      {
+        id: 4,
+        name: "Everest",
+        href: "/",
+      },
+    ],
+    lifestyle: [
+      {
+        id: 1,
+        name: "Beachwear",
+        href: "/",
+      },
+      {
+        id: 2,
+        name: "Warm Winter",
+        href: "/",
+      },
+      {
+        id: 3,
+        name: "True Snow",
+        href: "/",
+      },
+      {
+        id: 4,
+        name: "Sweat Drape",
+        href: "/",
+      },
+      {
+        id: 5,
+        name: "Cuchill",
+        href: "/",
+      },
+      {
+        id: 6,
+        name: "Balzhimo",
+        href: "/",
+      },
+    ],
+    branded: [
+      {
+        id: 1,
+        name: "Brash Tiali",
+        href: "/",
+      },
+      {
+        id: 2,
+        name: "Braithon",
+        href: "/",
+      },
+      {
+        id: 3,
+        name: "Curtail Loin",
+        href: "/",
+      },
+      {
+        id: 4,
+        name: "Vital Lope",
+        href: "/",
+      },
+      {
+        id: 5,
+        name: "Yellow flap",
+        href: "/",
+      },
+    ],
+  },
+];
 
 const Footer = () => {
   return (
     // footer section
     <footer className="grid w-full lg:px-4">
-      <main className="grid lg:grid-cols-4 gap-y-16">
+      <main>
+      <main className="grid lg:grid-cols-4 gap-y-16 mb-16">
         {/* aside footer content with background */}
         <aside className="grid lg:row-span-2 bg-purple-800 bg-opacity-5 p-4 gap-y-8">
           {/* subscribe section  */}
@@ -87,48 +195,13 @@ const Footer = () => {
                 Georgous Sleek
               </h4>
               <ul className="flex flex-col gap-2 text-sm font-light">
-                {/* when clicked shows dropdown menu  */}
-                <li className="">
-                  <Link className={linkStyling} href={"/"}>
-                    Partner with us
-                  </Link>
-                  {/* partner with us component */}
-                  <PartnerWithUs className="hidden invisible flex flex-col gap-2">
-                    <input
-                      className={inputStyles}
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      id="email"
-                      autoComplete="on"
-                    />
-                    <textarea
-                      name="message"
-                      id="message"
-                      autoComplete="on"
-                      placeholder="leave a message ..."
-                      className={inputStyles}
-                    ></textarea>
-                    <button className="transition duration-300 ease-in-out text-sm font-medium hover:tracking-wide w-full border bg-yellow-600 hover:bg-yellow-500 rounded p-2 text-white">
-                      Submit
-                    </button>
-                  </PartnerWithUs>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Pave Watch
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Pave Watch
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Pave Watch
-                  </Link>
-                </li>
+                {footerData[0].sleek.map((item) => (
+                  <li key={item.id}>
+                    <Link className={linkStyling} href={item.href}>
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             {/* 2nd column */}
@@ -137,36 +210,13 @@ const Footer = () => {
                 Free Lifestyle
               </h4>
               <ul className="flex flex-col gap-2 text-sm font-light">
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Citel Sande
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Citel Sande
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Citel Sande
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Citel Sande
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Citel Sande
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Citel Sande
-                  </Link>
-                </li>
+                {footerData[0].lifestyle.map((life) => (
+                  <li key={life.id}>
+                    <Link href={life.href} className={linkStyling}>
+                      {life.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             {/* 3rd column */}
@@ -175,31 +225,13 @@ const Footer = () => {
                 Necklace Dong
               </h4>
               <ul className="flex flex-col gap-2 text-sm font-light">
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Sablo Tie
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Sablo Tie
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Sablo Tie
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Sablo Tie
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Sablo Tie
-                  </Link>
-                </li>
+                {footerData[0].necklace.map((neck) => (
+                  <li key={neck.id}>
+                    <Link className={linkStyling} href={neck.href}>
+                      {neck.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             {/* 4th column */}
@@ -208,31 +240,13 @@ const Footer = () => {
                 Branded Jewelry
               </h4>
               <ul className="flex flex-col gap-2 text-sm font-light">
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Rings Olive
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Rings Olive
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Rings Olive
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Rings Olive
-                  </Link>
-                </li>
-                <li>
-                  <Link className={linkStyling} href={"/"}>
-                    Rings Olive
-                  </Link>
-                </li>
+                {footerData[0].branded.map((brand) => (
+                  <li key={brand.id}>
+                    <Link className={linkStyling} href={brand.href}>
+                      {brand.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -268,7 +282,9 @@ const Footer = () => {
           </div>
         </div>
       </main>
-      {/* copyright section */}
+      </main>
+      <ShoppingCartFooter />
+            {/* copyright section */}
       <div className="bg-purple-800 py-2 text-center lg:text-start lg:px-12 text-white text-sm w-full">
         <p>&copy; {getCurrentDate()} Velvet. All rights reserved.</p>
       </div>

@@ -4,38 +4,24 @@ import { useRouter } from "next/navigation";
 import NavBar from "@/app/components/navBar";
 import { PurpleButton } from "@/app/components/button";
 import ShoppingCartFooter from "@/app/components/shoppingCartFooter";
+import { useState } from "react";
+import { inputStyles } from "@/app/utils/stylesUtil";
+
+
 const Cart = () => {
-  const router = useRouter();
-  return (
-    <header>
-      <nav>
-        {/* <NavBar /> */}
-      </nav>
-      <div className="flex items-center justify-center">
-        <PurpleButton
-          btnClick={() => {
-            router.back();
-          }}
-          type={"button"}
-          className="flex-1 transition duration-300 ease-in-out text-white hover:bg-yellow-400 bg-yellow-600 rounded-md p-2"
-        >
-          Back
-        </PurpleButton>
-        <PurpleButton
-          btnClick={() => {
-            router.push("/checkout");
-          }}
-          type={"button"}
-          className="flex-1 transition duration-300 ease-in-out text-white hover:bg-purple-600 bg-purple-800 rounded-md p-2"
-        >
-          Checkout
-        </PurpleButton>
-      </div>
-      <footer>
-        <ShoppingCartFooter />
-      </footer>
-    </header>
-  );
+  const [show, setShow] = useState(false);
+return (
+  <>
+  <div>
+    <h1 className="bg-black text-white p-2 cursor-pointer w-40" onClick={() => setShow(!show)}>Click Me</h1>
+    <div className={show ? "block" : "hidden"}>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus praesentium,
+        voluptatum sint esse laudantium pariatur fugit delectus tenetur
+        nisi voluptas aliquam, excepturi asperiores non minima similique animi maiores corporis eos!</p>
+    </div>
+  </div>
+  </>
+)
 };
 
 export default Cart;
